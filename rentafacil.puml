@@ -1,0 +1,46 @@
+@startuml Rentafacil
+class Carros
+class Alquiler{
+-CostoDia
+-Inventario
+-Codigo
+-FechaInicio
+-FechaFin
++CostoTotal()
++EstadoAlquiler()
++Finlquiler()
+}
+class Motos{
+    -CilindrosCC
+}
+class Camionetas{
+    -CapacidadEnKG
+}
+class Vehiculos{
+    -Placas
+    -Marca
+    -Modelo
+    -CostoDia
+}
+class RentaFacil{
+    -Inventario
+    -ListaClientes
+    +AgrgarClientes()
+    +RegristrarAlquiler()
+
+}
+class Clientes{
+    -Id
+    -Nombre
+    -DNI
+    -NumeroTelefonico
+}
+Alquiler <-- RentaFacil
+Alquiler <-- RentaFacil
+Clientes ---o RentaFacil
+Clientes "1" *-- "0.3" Alquiler
+RentaFacil "1" *--"0" Vehiculos
+Carros --> Vehiculos
+Motos --> Vehiculos
+Camionetas --> Vehiculos
+@enduml 
